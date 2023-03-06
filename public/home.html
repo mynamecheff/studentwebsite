@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Calendar App</title>
+</head>
+<body>
+  <h1>Welcome to My Calendar App!</h1>
+  
+  <p>Select a calendar:</p>
+  <button id="calendar1-btn">Calendar 1</button>
+  <button id="calendar2-btn">Calendar 2</button>
+  <button id="calendar3-btn">Calendar 3</button>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#calendar1-btn').on('click', function() {
+        window.location.href = 'calendar1.html';
+      });
+
+      $('#calendar2-btn').on('click', function() {
+        window.location.href = 'calendar2.html';
+      });
+
+      $('#calendar3-btn').on('click', function() {
+        window.location.href = 'calendar3.html';
+      });
+    });
+  </script>
+</body>
+</html>
