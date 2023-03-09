@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>My Calendar App</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  </head>
 <body>
-  <h1>Welcome to My Calendar App!</h1>
-  
-  <p>Select a calendar:</p>
-  <button id="calendar1-btn">Calendar 1</button>
-  <button id="calendar2-btn">Calendar 2</button>
-  <button id="calendar3-btn">Calendar 3</button>
+  <center>
+  <h1>Welcome To the Student Help Website</h1>
+  <p>For available times please select the card best characterizes your problem!</p>
+  </center>
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="./embedded_systems.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Embedded Systems</h5>
+        <p class="card-text">I need help with the hardware aspect of my project.</p>
+      </div>
+      <button id="calendar1-btn" type="button" class="btn btn-primary btn-lg">Click Here!</button>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="./Python.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Programming</h5>
+        <p class="card-text">I need help with the programming aspect of my project.</p>
+      </div>
+      <button id="calendar2-btn" type="button" class="btn btn-primary btn-lg">Click Here!</button>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="./scrum.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Project management</h5>
+        <p class="card-text">I need help with the project management aspect of my project.</p>
+      </div>
+      <button id="calendar3-btn" type="button" class="btn btn-primary btn-lg">Click Here!</button>
+    </div>
+  </div>
+
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>

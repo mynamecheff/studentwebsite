@@ -11,6 +11,11 @@
   "dependencies": {
     "@fullcalendar/bootstrap": "^6.1.4",
     "express": "^4.18.2",
-    "fullcalendar": "^6.1.4"
+    "fullcalendar": "^6.1.4",
+    "jQuery": "^1.7.4",
+    "jsdom": "^21.1.0",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.1",
+    "sqlite3": "^5.1.4"
   }
 }

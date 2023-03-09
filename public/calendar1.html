@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Calendar 1</title>
+  <title>Embedded Systems Calendar</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.print.min.css" rel="stylesheet" media="print" />
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
@@ -15,8 +15,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>Calendar 1</h1>
+    <h1>Embedded Systems</h1>
+    <button id="home-btn" type="button" class="btn btn-primary">Back To Home Page</button> 
+    <br> </br>
     <div id="calendar"></div>
   </div>
+  <script>
+    $(document).ready(function() {
+      $('#home-btn').on('click', function() {
+        window.location.href = 'home.html';
+      });
+    });
+  </script>
 </body>
 </html>
