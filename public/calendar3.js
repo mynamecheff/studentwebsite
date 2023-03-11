@@ -87,6 +87,7 @@ $(document).ready(function() {
         );
       }
     },
+    // Add a custom event to the calendar on red events
     eventClick: function(event, jsEvent, view) {
       if (event.backgroundColor === "red") {
         const date = event.start;
@@ -106,6 +107,7 @@ $(document).ready(function() {
             }
           });
         }
+        //to delete event (can't delete red events)
       } else {
         if (confirm("Are you sure you want to delete this event?")) {
           $.ajax({
@@ -122,7 +124,7 @@ $(document).ready(function() {
         }
       }
     },
-    
+    //for making events
     dayClick: function(date, jsEvent, view) {
       const title = prompt('Event Title:');
       if (title) {
@@ -141,6 +143,7 @@ $(document).ready(function() {
         });
       }
     },
+    //ability to drag and rezise events
     eventResize: function(event, delta, revertFunc) {
       const start = event.start.format();
       const end = event.end.format();
