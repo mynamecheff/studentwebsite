@@ -71,14 +71,52 @@ $(document).ready(function() {
         );
       }
     },
+    // Add a custom event to the calendar on red events
+    eventClick: function(event, jsEvent, view) {
+      if (event.backgroundColor === "red") {
+        const date = event.start;
+        const title = prompt('Event Title:');
+        if (title) {
+          const start = date.format();
+          const end = moment(date).add(30, 'minutes').format();
+          const duration = 30;
+          const calendar_id = 3;
+          const eventData = { calendar_id, title, start, end, duration };
+          $.ajax({
+            url: '/api/events',
+            type: 'POST',
+            data: eventData,
+            success: function(event) {
+              $('#calendar').fullCalendar('renderEvent', event, true);
+            }
+          });
+        }
+        //to delete event (can't delete red events)
+      } else {
+        if (confirm("Are you sure you want to delete this event?")) {
+          $.ajax({
+            url: '/api/events/' + event.id,
+            type: 'DELETE',
+            data: {
+              title: event.title,
+              calendar_id: event.calendar_id
+            },
+            success: function() {
+              $('#calendar').fullCalendar('removeEvents', event.id);
+            }
+          });
+        }
+      }
+    },
+    //for making events
     dayClick: function(date, jsEvent, view) {
       const title = prompt('Event Title:');
       if (title) {
         const start = date.format();
-        const end = date.add(30, 'minutes').format();
-        //const end = date.add(1, 'hour').format();
-        const calendar_id = 2;
-        const eventData = { calendar_id, title, start, end };
+        const end = moment(date).add(30, 'minutes').format();
+        const duration = 30;
+        const calendar_id = 3;
+        const eventData = { calendar_id, title, start, end, duration };
         $.ajax({
           url: '/api/events',
           type: 'POST',
@@ -89,22 +127,7 @@ $(document).ready(function() {
         });
       }
     },
-    eventClick: function(event, jsEvent, view) {
-      if (event.backgroundColor !== "red") {
-        confirm("Are you sure you want to delete this event?");
-        $.ajax({
-          url: '/api/events/' + event.id,
-          type: 'DELETE',
-          data: {
-            title: event.title,
-            calendar_id: event.calendar_id
-          },
-          success: function() {
-            $('#calendar').fullCalendar('removeEvents', event.id);
-          }
-        });
-      }
-    },
+    //ability to drag and rezise events
     eventResize: function(event, delta, revertFunc) {
       const start = event.start.format();
       const end = event.end.format();
