@@ -94,7 +94,7 @@ $(document).ready(function() {
         const title = prompt('Event Title:');
         if (title) {
           const start = date.format();
-          const end = moment(date).add(30, 'minutes').format();
+          const end = moment(date).add(10, 'minutes').format();
           const duration = 30;
           const calendar_id = 3;
           const eventData = { calendar_id, title, start, end, duration };
@@ -129,7 +129,7 @@ $(document).ready(function() {
       const title = prompt('Event Title:');
       if (title) {
         const start = date.format();
-        const end = moment(date).add(30, 'minutes').format();
+        const end = moment(date).add(10, 'minutes').format();
         const duration = 30;
         const calendar_id = 3;
         const eventData = { calendar_id, title, start, end, duration };

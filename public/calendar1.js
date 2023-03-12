@@ -9,6 +9,7 @@ $(document).ready(function() {
     defaultView: 'agendaWeek',
     navLinks: true,
     editable: true,
+    slotDuration: '00:10:00',
     eventLimit: true,
     events: {
       url: '/api/events',
@@ -93,8 +94,15 @@ $(document).ready(function() {
             undeletable: true
           }
         );
+        response.forEach(function(event) {
+          if (event.title === 'DAMN') {
+            event.color = 'yellow';
+          } else if (event.title === 'BHAN') {
+            event.color = 'green';
+          }
+        });
       }
-    },
+    },    
     // Add a custom event to the calendar on red events
     eventClick: function(event, jsEvent, view) {
       if (event.backgroundColor === "red") {
@@ -102,7 +110,7 @@ $(document).ready(function() {
         const title = prompt('Event Title:');
         if (title) {
           const start = date.format();
-          const end = moment(date).add(30, 'minutes').format();
+          const end = moment(date).add(10, 'minutes').format();
           const duration = 30;
           const calendar_id = 1;
           const eventData = { calendar_id, title, start, end, duration };
@@ -137,10 +145,11 @@ $(document).ready(function() {
       const title = prompt('Event Title:');
       if (title) {
         const start = date.format();
-        const end = moment(date).add(30, 'minutes').format();
+        const end = moment(date).add(10, 'minutes').format();
         const duration = 30;
         const calendar_id = 1;
-        const eventData = { calendar_id, title, start, end, duration };
+        const color = prompt('Event Color:');
+        const eventData = { calendar_id, title, start, end, duration, color };
         $.ajax({
           url: '/api/events',
           type: 'POST',
