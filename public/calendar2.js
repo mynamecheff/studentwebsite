@@ -143,6 +143,24 @@ $(document).ready(function() {
           revertFunc();
         }
       });
-    }
+    },
+        //save when moving events
+        eventDrop: function(event, delta, revertFunc) {
+          const start = event.start.format();
+          const end = event.end.format();
+          const title = event.title; // update the title
+          $.ajax({
+            url: '/api/events/' + event.id,
+            type: 'PUT',
+            data: { start: start, end: end, title: title, calendar_id: event.calendar_id },
+            success: function() {
+              // The event has been updated in the database
+            },
+            error: function() {
+              // There was an error updating the event in the database
+              revertFunc();
+            }
+          });
+        }
   });
 });
