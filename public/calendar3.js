@@ -10,6 +10,7 @@ $(document).ready(function() {
     navLinks: true,
     editable: true,
     eventLimit: true,
+    slotDuration: '00:10:00',
     events: {
       url: '/api/events',
       type: 'GET',
