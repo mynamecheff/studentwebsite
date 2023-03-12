@@ -104,7 +104,7 @@ $(document).ready(function() {
           const start = date.format();
           const end = moment(date).add(30, 'minutes').format();
           const duration = 30;
-          const calendar_id = 3;
+          const calendar_id = 1;
           const eventData = { calendar_id, title, start, end, duration };
           $.ajax({
             url: '/api/events',
@@ -139,7 +139,7 @@ $(document).ready(function() {
         const start = date.format();
         const end = moment(date).add(30, 'minutes').format();
         const duration = 30;
-        const calendar_id = 3;
+        const calendar_id = 1;
         const eventData = { calendar_id, title, start, end, duration };
         $.ajax({
           url: '/api/events',
