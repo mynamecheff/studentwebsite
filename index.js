@@ -31,8 +31,8 @@ app.post('/login', (req, res) => {
   const password = req.body.password;
 
   // Validate username and password securely
-  const secureUsernames = ['root', 'Kevin', 'Malene', 'Bo', 'Dan'];
-  const securePasswords = ['dirb', 'python', 'scrum', 'Arduino', 'inductor'];
+  const secureUsernames = ['root', 'Kevin', 'Malene', 'Bo', 'Dan', 'CAHD'];
+  const securePasswords = ['dirb', 'python', 'scrum', 'Arduino', 'inductor', 'CTF'];
   const index = secureUsernames.indexOf(username);
   if (index >= 0 && securePasswords[index] === password) {
     // Set user session data
